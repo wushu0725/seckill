@@ -55,7 +55,7 @@ public class SecKillService {
             return "0";
         }
 
-        //判断之前userid是否购买过，买过则直接返回0
+        //判断之前userid是否购买
         if(redisTemplate.opsForValue().getAndSet(userid,1)!=null){
             return "0";
         }
