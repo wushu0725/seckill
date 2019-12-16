@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sherk.order.dao.ProductDao">
+    <!-- 这里做判断是否有库存和数量减一操作，
+         如果库存大于1，则 更新记录返回 1
+         如果库存等于，更新失败，返回  0
+         所以是不会出现超卖的现象-->
+    <update id="updataNumById">
+        update seckill set inventory=inventory-1
+             where seckillId=#{seckillId} and inventory>0
+    </update>
+</mapper>
